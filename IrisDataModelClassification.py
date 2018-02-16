@@ -6,6 +6,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
+#Load the Iris dataset
 iris = datasets.load_iris()
 irisX = iris.data[:, :2]
 irisY = iris.target
@@ -15,7 +16,7 @@ step = 0.02
 xx, yy = np.meshgrid(np.arange(x_min, x_max, step), np.arange(y_min, y_max, step));
 
 # Split into training and testing sets
-# Use KNN to predict
+# Use KNN to predict type of Iris
 np.random.seed(0)
 indices = np.random.permutation(len(irisX))
 irisXTrain = irisX[indices[:-10]]
@@ -36,7 +37,7 @@ legend     = [redPatch, bluePatch, greenPatch]
 def type_to_color (ftype):
     return colorList[ftype]
 
-
+#Predict based on chosen model/classifier type and plot
 def predict_and_plot (model):
     modelType = type(model)
     print ("Model Type", modelType)
@@ -86,4 +87,3 @@ titles = ["Gaussian", "KNN", "Logistic Regression", "SVM"]
 fittedModels = [predict_and_plot(model) for model in [nbModel, knn, lrModel, svmModel]]
 
 plt.show()
-
