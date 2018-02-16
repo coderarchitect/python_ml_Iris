@@ -6,7 +6,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-#Load the Iris dataset
+# -- Load the Iris dataset
 iris = datasets.load_iris()
 irisX = iris.data[:, :2]
 irisY = iris.target
